@@ -1,0 +1,13 @@
+﻿/*
+ *  Document   : _colorpicker.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for color picker style classes
+ */
+.colorpicker {
+  z-index: 1;
+
+  &:before,
+  &:after {
+    display: none !important;
+  }
+}

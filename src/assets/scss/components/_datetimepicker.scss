@@ -1,0 +1,61 @@
+﻿/*
+ *  Document   : _datetimepicker.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for date and time picker style classes
+ */
+.dtp {
+  div.dtp-date,
+  div.dtp-time {
+    background: #2196f3;
+  }
+
+  > .dtp-content {
+    > .dtp-date-view {
+      > header.dtp-header {
+        background: #2196f3;
+        height: 20px !important;
+        line-height: 20px !important;
+      }
+    }
+  }
+
+  .p10 {
+    > a {
+      color: #fff;
+    }
+  }
+
+  div.dtp-actual-year {
+    font-size: 1.5em;
+    color: #ffffff;
+  }
+
+  table.dtp-picker-days {
+    tr {
+      td {
+        a.selected {
+          background: #2196f3;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .dtp-buttons {
+    text-align: center;
+
+    .dtp-btn-ok {
+      margin-right: 10px;
+    }
+
+    .dtp-btn-clear {
+      margin-left: 10px !important;
+    }
+  }
+}
+.dtp-actual-day {
+  height: 20px !important;
+  line-height: 20px !important;
+}
+.flatPicker {
+  color: #495057;
+}

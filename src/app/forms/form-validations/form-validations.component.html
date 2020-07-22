@@ -1,0 +1,488 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Form Validations</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a routerLink="/dashboard/main">
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-2">
+                            <a href="#" onClick="return false;">Forms</a>
+                        </li>
+                        <li class="breadcrumb-item active">Validations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Validation -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Basic</strong> Validation</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" formControlName="firstName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" formControlName="lastName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" formControlName="email" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" formControlName="password" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Basic Validation -->
+        <!-- #START# ng2-validation  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>ng2-validation</strong> Examples</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="">
+                            <form class="form-horizontal" novalidate>
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">required</label>
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="requried"
+                                            #requried="ngModel" required placeholder="required" />
+                                        <p class="col-red" *ngIf="requried?.errors?.required">required error
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">minlength</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="minlength"
+                                            #minlength="ngModel" minlength="5" placeholder="min length 5" />
+                                        <p class="col-red" *ngIf="minlength?.errors?.minlength">minlength
+                                            error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">maxlength</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="maxlength"
+                                            #maxlength="ngModel" maxlength="5" placeholder="max length 5" />
+                                        <p class="col-red" *ngIf="maxlength?.errors?.maxlength">maxlength
+                                            error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">pattern</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="pattern"
+                                            #pattern="ngModel" pattern="[a-z]{6}" placeholder="[a-z]{6}" />
+                                        <p class="col-red" *ngIf="pattern?.errors?.pattern">pattern error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">base64</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="base64" #base64="ngModel"
+                                            base64 placeholder="base64" />
+                                        <p class="col-red" *ngIf="base64?.errors?.base64">base64 error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">creditCard</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="creditCard"
+                                            #creditCard="ngModel" creditCard placeholder="creditCard" />
+                                        <p class="col-red" *ngIf="creditCard?.errors?.creditCard">creditCard
+                                            error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">date</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="date" #date="ngModel" date
+                                            placeholder="dd-mm-yyyy" />
+                                        <p class="col-red" *ngIf="date?.errors?.date">date error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">dateISO</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="dateISO"
+                                            #dateISO="ngModel" dateISO placeholder="dateISO" />
+                                        <p class="col-red" *ngIf="dateISO?.errors?.dateISO">dateISO error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">maxDate</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="maxDate"
+                                            #maxDate="ngModel" maxDate="2016-12-12" placeholder="dd-mm-yyyy" />
+                                        <p class="col-red" *ngIf="maxDate?.errors?.maxDate">maxDate error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">minDate</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="minDate"
+                                            #minDate="ngModel" minDate="2016-12-12" placeholder="dd-mm-yyyy" />
+                                        <p class="col-red" *ngIf="minDate?.errors?.minDate">minDate error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">digits</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="digits" #digits="ngModel"
+                                            digits placeholder="digits" />
+                                        <p class="col-red" *ngIf="digits?.errors?.digits">digits error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">email</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="email" #email="ngModel"
+                                            email placeholder="email" />
+                                        <p class="col-red" *ngIf="email?.errors?.email">email error</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">equal password</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="password"
+                                            #password="ngModel" placeholder="enter password" />
+                                        <input class="form-control" type="text" ngModel name="equalTo"
+                                            #equalTo="ngModel" [equalTo]="password"
+                                            placeholder="enter password again" />
+                                        <p class="col-red" *ngIf="equalTo?.errors?.equalTo">password not equal</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">not equal passwod</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="oldPassword"
+                                            #oldPassword="ngModel" placeholder="enter password" />
+                                        <input class="form-control" type="text" ngModel name="notEqualTo"
+                                            #notEqualTo="ngModel" [notEqualTo]="oldPassword"
+                                            placeholder="enter password again" />
+                                        <p class="col-red" *ngIf="notEqualTo?.errors?.notEqualTo">not equal password</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">greater than</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="gt" #gt="ngModel" gt="10"
+                                            placeholder="greater than 10" />
+                                        <p class="col-red" *ngIf="gt?.errors?.gt">greater than error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">greater than equal</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="gte" #gte="ngModel"
+                                            gte="10" placeholder="greater than equal to 10" />
+                                        <p class="col-red" *ngIf="gte?.errors?.gte">greater than equal error
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">less than</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="lt" #lt="ngModel" lt="5"
+                                            placeholder="less than 5" />
+                                        <p class="col-red" *ngIf="lt?.errors?.lt">less than error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">less than equal</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="lte" #lte="ngModel"
+                                            lte="5" placeholder="greater than equal to 5" />
+                                        <p class="col-red" *ngIf="lte?.errors?.lte">less than equal error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">json</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="json" #json="ngModel" json
+                                            placeholder="json" />
+                                        <p class="col-red" *ngIf="json?.errors?.json">json error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">max</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="max" #max="ngModel"
+                                            max="5" placeholder="max 5" />
+                                        <p class="col-red" *ngIf="max?.errors?.max">max error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">min</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="min" #min="ngModel"
+                                            min="5" placeholder="min 5" />
+                                        <p class="col-red" *ngIf="min?.errors?.min">min error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">number</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="number" #number="ngModel"
+                                            number placeholder="number" />
+                                        <p class="col-red" *ngIf="number?.errors?.number">number error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">phone</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="phone" #phone="ngModel"
+                                            phone placeholder="phone" />
+                                        <p class="col-red" *ngIf="phone?.errors?.phone">phone error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">range</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="range" #range="ngModel"
+                                            [range]="[4,9]" placeholder="[4,9]" />
+                                        <p class="col-red" *ngIf="range?.errors?.range">range error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">rangeLength</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="rangeLength"
+                                            #rangeLength="ngModel" [rangeLength]="[4,9]" placeholder="[4,9]" />
+                                        <p class="col-red" *ngIf="rangeLength?.errors?.rangeLength">
+                                            rangeLength error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">url</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="url" #url="ngModel" url
+                                            placeholder="url" />
+                                        <p class="col-red" *ngIf="url?.errors?.url">url error</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">uuid</label>
+
+                                    <div class="col-xs-9">
+                                        <input class="form-control" type="text" ngModel name="uuid" #uuid="ngModel"
+                                            uuid="3" placeholder="uuid" />
+                                        <p class="col-red" *ngIf="uuid?.errors?.uuid">uuid error</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# ng2-validation  -->
+        <!-- #START# jQuery Validation -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>jQuery</strong> Validation</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <form id="form_advanced_validation" method="POST">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="minmaxlength" maxlength="10"
+                                        minlength="3" placeholder="Min/Max Length" required />
+                                </div>
+                                <div class="help-info">Min. 3, Max. 10 characters</div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" class="form-control" name="minmaxvalue" min="10" max="200"
+                                        placeholder="Min/Max Value" required />
+                                </div>
+                                <div class="help-info">Min. Value: 10, Max. Value: 200</div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="url" class="form-control" name="url" placeholder="Url" required />
+                                </div>
+                                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="date" placeholder="Date" required />
+                                </div>
+                                <div class="help-info">YYYY-MM-DD format</div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" class="form-control" name="number" placeholder="Number"
+                                        required />
+                                </div>
+                                <div class="help-info">Numbers only</div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="creditcard" placeholder="Credit Card"
+                                        pattern="[0-9]{13,16}" required />
+                                </div>
+                                <div class="help-info">Ex: 1234-5678-9012-3456</div>
+                            </div>
+                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# jQuery Validation -->
+    </div>
+</section>

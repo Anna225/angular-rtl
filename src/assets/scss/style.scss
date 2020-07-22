@@ -1,0 +1,130 @@
+/*
+ *  Document   : style.css
+ *  Author     : RedStar Template
+ *  Description: This is a main style scss file for import all scss files.
+ *
+ *  Structure (with shortcodes):
+                 [1. Variables ]
+                 [2. Animations ]                   
+                 [3. Components ]                   
+                 [4. General Styles ]                   
+                 [5. Media Queries ]                   
+                 [6. Icons ]                   
+                 [7. Form Components ]                   
+                 [8. Left Sidebar ]                   
+                 [9. Navbar ]                   
+                 [10. Slider ]                   
+                 [11. Search Bar ]                   
+                 [12. Todo ]                   
+                 [13. Notice Board ]                   
+                 [14. Apps]                   
+                 [15. Pages ]                   
+                 [16. Pugins ]                   
+                 [17. Ecommerce ]                   
+                 [18. Material Components ]                   
+                 [19. Browser ]                              
+
+
+
+/*                 [1. Variables ]                   			*/
+@import "common/_mixins";
+@import "common/_variables";
+@import "common/_helpers.scss";
+/*                 [2. Animations ]                   			*/
+@import "common/_customanimate.scss";
+@import "common/_animation.scss";
+/*                 [3. Components ]                   			*/
+@import "common/_demo.scss";
+/*                 [4. General Styles ]                   		*/
+@import "common/_general.scss";
+/*                 [5. Media Queries ]                   		*/
+@import "common/_media.scss";
+
+/*                 [6. Icons ]                   				*/
+@import "fonts/_material.scss";
+/* Fontawesome Icons ====================================== 	*/
+@import "fonts/fontawesome/fontawesome.scss";
+@import "fonts/fontawesome/regular.scss";
+@import "fonts/fontawesome/solid.scss";
+@import "fonts/fontawesome/brands.scss";
+
+/*                 [7. Form Components ]                   		*/
+@import "components/_bootstrapselect.scss";
+@import "components/_select2.scss";
+@import "components/_breadcrumbs.scss";
+@import "components/_checkboxradio.scss";
+@import "components/_colorpicker.scss";
+@import "components/_datetimepicker.scss";
+@import "components/_dropdownmenu.scss";
+@import "components/_dropzone.scss";
+@import "components/_feed.scss";
+@import "components/_infobox.scss";
+@import "components/_inputformgroup.scss";
+@import "components/_labels.scss";
+@import "components/_multiselect.scss";
+@import "components/_switch.scss";
+@import "components/_thumbnails.scss";
+@import "components/_tagsinput.scss";
+
+/*                 [8. Left Sidebar ]                   		*/
+@import "components/_leftsidebaroverlay.scss";
+/*                 [9. Navbar ]                   				*/
+@import "components/_navbar";
+@import "components/_navtabs.scss";
+/*                 [10. Slider ]                   				*/
+@import "components/_noUISlider.scss";
+/*                 [11. Search Bar ]                   			*/
+@import "components/_searchbar.scss";
+/*                 [12. Todo ]                   				*/
+@import "components/_todo.scss";
+/*                 [13. Notice Board ]                   		*/
+@import "components/_noticeboard.scss";
+
+/*                 [14. Apps]                   				*/
+@import "apps/_calendar.scss";
+@import "apps/_chat.scss";
+@import "apps/_contactlist.scss";
+@import "apps/_contactgrid.scss";
+@import "apps/_portfolio.scss";
+@import "apps/_task.scss";
+@import "apps/_dragdrop.scss";
+
+/*                 [15. Pages ]                   				*/
+@import "pages/_dashboard.scss";
+@import "pages/_inbox.scss";
+@import "pages/_pricing.scss";
+@import "pages/_profile.scss";
+@import "pages/_timeline.scss";
+@import "pages/_extra_pages.scss";
+
+/*                 [16. Pugins ]                   				*/
+@import "plugins/_carousel.scss";
+@import "plugins/_charts.scss";
+@import "plugins/_formwizard.scss";
+@import "plugins/_jquerydatatable.scss";
+@import "plugins/_jquerynestable.scss";
+@import "plugins/_lightgallery.scss";
+@import "plugins/_maps.scss";
+@import "plugins/_tables.scss";
+
+
+/*                 [18. Material Components ]                   */
+@import "ui/_alerts.scss";
+@import "ui/_badgelistgroupitem.scss";
+@import "ui/_buttons.scss";
+@import "ui/_card.scss";
+@import "ui/_collapse.scss";
+@import "ui/_dialogs.scss";
+@import "ui/_mediaobject.scss";
+@import "ui/_modals.scss";
+@import "ui/_pageloader.scss";
+@import "ui/_pagination.scss";
+@import "ui/_panels.scss";
+@import "ui/_preloaders.scss";
+@import "ui/_progressbars.scss";
+@import "ui/_tooltippopovers.scss";
+@import "ui/_waveseffect.scss";
+
+/*                 [19. Browser ]                   			*/
+@import "browser/_ie10.scss";
+@import "browser/_ie11.scss";

@@ -1,0 +1,28 @@
+﻿/*
+ *  Document   : _maps.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for maps style classes
+ */
+/* Google Maps */
+.gmap {
+  width: 100%;
+  height: 400px;
+}
+
+/* JQV Map */
+.jqv-map {
+  width: 100%;
+  height: 600px;
+}
+#vmap_usa,
+#vmap_russia,
+#vmap_europe,
+#vmap_germany {
+  width: 400px;
+  height: 400px;
+}
+#worldMap2 {
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+}

@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+
+declare const $: any;
+@Component({
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss']
+})
+export class CardsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+
+    'use strict';
+    $(function () {
+      initLoading();
+    });
+
+    //Init Loading
+    function initLoading() {
+      $('[data-toggle="cardloading"]').on('click', function () {
+        var effect = $(this).data('loadingEffect');
+        var $loading = $(this).parents('.card').waitMe({
+          effect: effect,
+          text: 'Loading...',
+          bg: 'rgba(255,255,255,0.90)',
+          color: '#555'
+        });
+
+        setTimeout(function () {
+          //Loading hide
+          $loading.waitMe('hide');
+        }, 3200);
+      });
+    }
+  }
+
+}

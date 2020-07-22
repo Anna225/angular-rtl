@@ -1,0 +1,93 @@
+﻿/*
+ *  Document   : _jquerydatatable.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for jQuery data table style classes
+ */
+.dataTables_wrapper {
+  position: relative;
+
+  select {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    @include border-radius(0);
+    @include box-shadow(none);
+    font-size: 12px;
+
+    &:active,
+    &:focus {
+      @include box-shadow(none);
+    }
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input[type="search"] {
+    @include border-radius(0);
+    @include box-shadow(none);
+    border: none;
+    font-size: 12px;
+    height: 26px;
+    border-bottom: 1px solid #ddd;
+
+    &:focus,
+    &:active {
+      border-bottom: 2px solid #1f91f3;
+    }
+  }
+
+  .dt-buttons {
+    float: right;
+
+    a.dt-button {
+      background-color: #607d8b;
+      color: #fff;
+      padding: 7px 12px;
+      margin-left: 5px;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+      @include border-radius(2px);
+      border: none;
+      font-size: 13px;
+      outline: none;
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+  .page-link:focus {
+    box-shadow: none;
+    color: #65686b;
+    background-color: transparent;
+  }
+}
+.dataTables_filter {
+  float: left;
+}
+.dt-button-info {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  min-width: 400px;
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #999;
+  @include border-radius(3px);
+  margin-top: -100px;
+  margin-right: -200px;
+  z-index: 21;
+
+  h2 {
+    color: #777;
+  }
+
+  div {
+    color: #777;
+    margin-bottom: 20px;
+  }
+}
+#tableExport_wrapper {
+  padding: 10px 0px;
+}

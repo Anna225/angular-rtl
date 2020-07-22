@@ -1,0 +1,12 @@
+﻿/*
+ *  Document   : _tagsinput.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file bootstrap tags input style classes
+ */
+.bootstrap-tagsinput {
+  @include box-shadow(none !important);
+  border: none !important;
+  .tag {
+    margin-bottom: 2px;
+  }
+}

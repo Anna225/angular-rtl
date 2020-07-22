@@ -1,0 +1,252 @@
+<section class="content">
+    <div class="container-fluid">
+        <!-- Basic Examples -->
+        <div class="alert alert-info">
+            Advance table component is develop using <strong>ngx-datatable</strong> angular plugin. Main features of
+            this table is search record in table, add new record, edit record, delete record, sorting data by
+            ascending and descending, pagination, and many more. You have just replace table static json data with your
+            dynamic json data comes from your api.
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ngxTableHeader">
+
+                                    <ul class="header-buttons-left m-r-5">
+                                        <li class="dropdown m-r-20">
+                                            <h2>
+                                                <strong>Advance Table</strong></h2>
+                                        </li>
+                                        <li class="dropdown m-r-20">
+                                            <label for="search-input"><i
+                                                    class="material-icons search-icon">search</i></label>
+                                            <input placeholder="Search" type="text" class="browser-default search-field"
+                                                (keyup)='filterDatatable($event)' aria-label="Search box">
+                                        </li>
+                                    </ul>
+
+                                    <ul class="header-buttons m-l-20">
+                                        <li>
+                                            <div class="icon-button-demo">
+                                                <button type="button" data-toggle="modal" data-target="#addModal"
+                                                    (click)='addRow()'
+                                                    class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
+                                                    <i class="material-icons col-white" style="padding-top: 1px">add</i>
+                                                </button>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <ngx-datatable #table class="material" [rows]="data" [columns]="columns"
+                                    [sortType]="'multi'" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                                    [rowHeight]="'60'" [limit]="10">
+                                    <!-- user image -->
+                                    <ngx-datatable-column name="Image" sortable="false" prop="img" [width]="100">
+                                        <ng-template let-row="data" let-value="value" let-i="index"
+                                            ngx-datatable-cell-template>
+                                            <td class="table-img padding-0">
+                                                <img width="40" src="{{ value }}" />
+                                            </td>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="First Name" [width]="130"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Last Name" [width]="130"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Gender" [width]="120"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Phone" [width]="200"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Email" [width]="200"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Address" [width]="200"></ngx-datatable-column>
+                                    <!-- <ngx-datatable-column *ngFor="let col of columns" [name]="col.name">
+                                    </ngx-datatable-column> -->
+                                    <!-- action buttons -->
+                                    <ngx-datatable-column name="Actions" sortable="false" [width]="120">
+                                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                            <span>
+                                                <button class="btn tblActnBtn h-auto" data-toggle="modal"
+                                                    data-target="#editModal" (click)='editRow(row)'>
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblActnBtn h-auto" (click)='deleteRow(row)'>
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </span>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+
+                                <!-- Add Record Modal Window -->
+                                <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="editRowModal">
+                                                    <div class="modal-header clearfix">
+                                                        <img [src]='newUserImg' alt="avatar">
+                                                        <div class="modal-about">
+                                                            <div class="font-weight-bold p-t-10 font-17">
+                                                                New User</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn p-t-10 modal-close-button"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                    <i class="material-icons">clear</i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form [formGroup]="addRowForm" (ngSubmit)="onAddRowSave(addRowForm)">
+                                                    <div class="input-field col s12 d-none">
+                                                        <input formControlName="id" class="form-control" type="hidden">
+                                                    </div>
+                                                    <div class="input-field col s12 d-none">
+                                                        <input formControlName="img" class="form-control" type="hidden">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">perm_identity</i>
+                                                            <input formControlName="firstName" class="form-control"
+                                                                placeholder="First Name">
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">perm_identity</i>
+                                                            <input formControlName="lastName" class="form-control"
+                                                                placeholder="Last Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">phone</i>
+                                                            <input formControlName="phone" class="form-control"
+                                                                placeholder="Phone">
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">face</i>
+                                                            <div
+                                                                class="p-l-40 input-field materialize-select col s12 ngx-table-form-select">
+                                                                <select formControlName="gender">
+                                                                    <option value="" disabled selected>Select Gender
+                                                                    </option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">mail_outline</i>
+                                                            <input formControlName="email" class="form-control"
+                                                                placeholder="Email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">store_mall_directory</i>
+                                                            <input formControlName="address" class="form-control"
+                                                                placeholder="Address">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <div class="button-demo">
+                                                            <button type="submit"
+                                                                class="btn btn-outline-success btn-border-radius">Save</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline-warning btn-border-radius"
+                                                                data-dismiss="modal">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Edit Record Modal Window -->
+                                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="editRowModal">
+                                                    <div class="modal-header clearfix">
+                                                        <img [src]='selectedRowData?.img' alt="avatar">
+                                                        <div class="modal-about">
+                                                            <div class="font-weight-bold p-t-10 font-17">
+                                                                {{selectedRowData?.firstName}}
+                                                                {{selectedRowData?.lastName}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn p-t-10 modal-close-button"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                    <i class="material-icons">clear</i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form [formGroup]="basicForm" (ngSubmit)="onEditSave(basicForm)">
+
+                                                    <div class="input-field col s12 d-none">
+                                                        <input formControlName="id" class="form-control" type="hidden">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">perm_identity</i>
+                                                            <input id="icon_prefix" formControlName="firstName"
+                                                                type="text" class="validate">
+                                                            <label for="icon_prefix">First Name</label>
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">perm_identity</i>
+                                                            <input id="icon_telephone" formControlName="lastName"
+                                                                type="text" class="validate">
+                                                            <label for="icon_telephone">Last Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">phone</i>
+                                                            <input id="icon_telephone" formControlName="phone"
+                                                                type="text" class="validate">
+                                                            <label for="icon_telephone">Phone</label>
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <i class="material-icons prefix">mail_outline</i>
+                                                            <input id="icon_telephone" formControlName="email"
+                                                                type="text" class="validate">
+                                                            <label for="icon_telephone">Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">store_mall_directory</i>
+                                                            <input id="icon_prefix" formControlName="address"
+                                                                type="text" class="validate">
+                                                            <label for="icon_prefix">Address</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="button-demo">
+                                                            <button type="submit"
+                                                                class="btn btn-outline-success btn-border-radius">Save</button>
+                                                            <button type="button"
+                                                                class="btn btn-outline-warning btn-border-radius"
+                                                                data-dismiss="modal">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

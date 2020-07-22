@@ -1,0 +1,338 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Form Wizard</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a routerLink="/dashboard/main">
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-2">
+                            <a href="#" onClick="return false;">Forms</a>
+                        </li>
+                        <li class="breadcrumb-item active">Wizard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Example | Horizontal Layout -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Horizontal</strong> Layout</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <aw-wizard #wizard [navBarLayout]="'large-empty-symbols'">
+                            <aw-wizard-step [stepTitle]="'Step 1'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-search"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form #firstForm="ngForm">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="username" ngModel
+                                                        #username="ngModel" required id="username"
+                                                        placeholder="Username">
+                                                    <small class="col-red"
+                                                        *ngIf="!username.valid && (username.dirty || username.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" name="password" ngModel
+                                                        #password="ngModel" required id="password"
+                                                        placeholder="Password">
+                                                    <small class="col-red"
+                                                        *ngIf="!password.valid && (password.dirty || password.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="email" class="form-control" name="email" ngModel
+                                                        #email="ngModel" required email id="email" placeholder="Email">
+                                                    <small class="col-red"
+                                                        *ngIf="!email.valid && (email.dirty || email.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-info btn-border-radius waves-effect"
+                                            [disabled]="!firstForm.valid" awNextStep>Next</button>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step [stepTitle]="'Step 2'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-upload"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form #secondForm="ngForm">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="firstName" ngModel
+                                                        #firstName="ngModel" required id="firstName"
+                                                        placeholder="First Name">
+                                                    <small class="col-red"
+                                                        *ngIf="!firstName.valid && (firstName.dirty || firstName.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="lastName" ngModel
+                                                        #lastName="ngModel" required id="lastName"
+                                                        placeholder="Last Name">
+                                                    <small class="col-red"
+                                                        *ngIf="!lastName.valid && (lastName.dirty || lastName.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="mobile" ngModel
+                                                        #mobile="ngModel" required id="mobile" placeholder="Mobile">
+                                                    <small class="col-red"
+                                                        *ngIf="!mobile.valid && (mobile.dirty || mobile.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="age" ngModel
+                                                        #age="ngModel" required id="age" placeholder="Age">
+                                                    <small class="col-red"
+                                                        *ngIf="!age.valid && (age.dirty || age.touched)">This
+                                                        field is required!</small>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-danger btn-border-radius waves-effect"
+                                            awPreviousStep>Back</button>
+                                        <button class="btn btn-info btn-border-radius waves-effect"
+                                            [disabled]="!secondForm.valid" awNextStep>Next</button>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step [stepTitle]="'Step 3'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-file"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form action="#">
+                                            <p>New the her nor case that lady paid read. Invitation friendship
+                                                travelling eat
+                                                everything
+                                                the out two. Shy you who scarcely expenses debating hastened resolved.
+                                                Always
+                                                polite
+                                                moment on is warmth spirit it to hearts. Downs those still witty an
+                                                balls so
+                                                chief
+                                                so. Moment an little remain no up lively no. Way brought may off our
+                                                regular
+                                                country
+                                                towards adapted cheered.
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" />
+                                                    <span>I agree with the Terms and Conditions.</span>
+                                                </label>
+                                            </p>
+                                        </form>
+                                    </div>
+
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-danger btn-border-radius waves-effect"
+                                            awPreviousStep>Back</button>
+                                        <button class="btn btn-success btn-border-radius waves-effect">Finish</button>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                        </aw-wizard>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Basic Example | Horizontal Layout -->
+        <!-- Basic Example | Vertical Layout -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Verticle</strong> Layout</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <aw-wizard #wizard [navBarLayout]="'large-empty-symbols'" [navBarLocation]="'left'">
+                            <aw-wizard-step [stepTitle]="'Step 1'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-search"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="username"
+                                                        placeholder="Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" name="password2"
+                                                        id="password2" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" name="confirm"
+                                                        placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-info btn-border-radius waves-effect"
+                                            awNextStep>Next</button>
+                                    </div>
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step [stepTitle]="'Step 2'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-upload"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" name="name" class="form-control"
+                                                        placeholder="First Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" name="surname" class="form-control"
+                                                        placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="email" name="email" class="form-control"
+                                                        placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="number" name="mobile" class="form-control"
+                                                        placeholder="Mobile">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="number" name="age" class="form-control"
+                                                        placeholder="Age">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-danger btn-border-radius waves-effect"
+                                            awPreviousStep>Back</button>
+                                        <button class="btn btn-info btn-border-radius waves-effect"
+                                            awNextStep>Next</button>
+                                    </div>
+
+                                </div>
+                            </aw-wizard-step>
+                            <aw-wizard-step [stepTitle]="'Step 3'">
+                                <ng-template awWizardStepSymbol><i class="fa fa-file"></i></ng-template>
+                                <div class="centered-content">
+                                    <div>
+                                        <form action="#">
+                                            <p>New the her nor case that lady paid read. Invitation friendship
+                                                travelling eat
+                                                everything
+                                                the out two. Shy you who scarcely expenses debating hastened resolved.
+                                                Always
+                                                polite
+                                                moment on is warmth spirit it to hearts. Downs those still witty an
+                                                balls so
+                                                chief
+                                                so. Moment an little remain no up lively no. Way brought may off our
+                                                regular
+                                                country
+                                                towards adapted cheered.
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input id="acceptTerms-3" name="acceptTerms" type="checkbox" />
+                                                    <span>I agree with the Terms and Conditions.</span>
+                                                </label>
+                                            </p>
+                                        </form>
+                                    </div>
+
+                                    <div class="text-right button-demo">
+                                        <button class="btn btn-danger btn-border-radius waves-effect"
+                                            awPreviousStep>Back</button>
+                                        <button class="btn btn-success btn-border-radius waves-effect">Finish</button>
+                                    </div>
+
+                                </div>
+                            </aw-wizard-step>
+                        </aw-wizard>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
